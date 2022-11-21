@@ -50,14 +50,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     fontSize:18,
     color:'white',
-    width:450,
+    width:"92%",
     height:50,
     borderRadius:15,
     padding: 10,
     margin: 15
   },
   buttonprofile:{
-    marginTop: 100,
+    marginTop: 30,
     paddingVertical: 12,
     paddingHorizontal: 32,
     borderRadius: 15,
@@ -70,13 +70,26 @@ const styles = StyleSheet.create({
     justifyContent:'center', 
     left:"25%"
   },
+  buttonpassword:{
+    marginTop: 30,
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 15,
+    elevation: 3,
+    backgroundColor: '#FF2D00',
+    width: 165, 
+    justifyContent:'center', 
+    
+    
+  },
   textbtn: {
     fontSize: 20,
     lineHeight: 21,
     fontWeight: 'bold',
     color: 'white',
     alignContent:'center',
-    padding:1
+    textAlign: 'center'
+  
   },
   textprofile: {
     fontSize: 15,
@@ -89,6 +102,14 @@ const styles = StyleSheet.create({
   },
   containerprofile: {
     backgroundColor: 'white'
+    
+  },
+  containerpassword: {
+    backgroundColor: 'white',
+    paddingHorizontal: 23
+    
+  
+    
   },
   //end profile section
   buttonhome:{
@@ -195,9 +216,16 @@ const styles = StyleSheet.create({
   },
   searchBar:{
     backgroundColor: '#d9d9d9',
-    marginTop: 10,
+    marginTop: 20,
+    marginBottom: 20,
     borderRadius: 15,
-    width: '96%'
+    width: '90%',
+  },
+  passwordInteraction:{
+    flexDirection: "row",
+    justifyContent: "center",
+    
+  
   }
 
 });
@@ -217,16 +245,19 @@ function PasswordScreen({ navigation }) {
       <Text style={styles.textprofile}>Repita la Contraseña</Text>
       <TextInput style={styles.inputprofile}
       placeholder='Email'/>
-      <View style={styles.containerprofile}>
-      <Pressable style={styles.buttonprofile} onPress={() => navigation.navigate('Home')}>
+      <View style={styles.passwordInteraction}>
+      <View style={styles.containerpassword}>
+      <Pressable style={styles.buttonpassword} onPress={() => navigation.navigate('Home')}>
         <Text style={styles.textbtn}>Aceptar</Text>
       </Pressable>
       </View>
-      <View style={styles.containerprofile}>
-      <Pressable style={styles.buttonprofile} onPress={() => navigation.navigate('Home')}>
+      <View style={styles.containerpassword}>
+      <Pressable style={styles.buttonpassword} onPress={() => navigation.navigate('Home')}>
         <Text style={styles.textbtn}>Cancelar</Text>
       </Pressable>
       </View>
+      </View>
+      
     </View>
   );
 }
@@ -272,10 +303,13 @@ function Home({navigation}) {
     <View>
     <ImageBackground source={image2} resizeMode="stretch" style={styles.image}>
      </ImageBackground>
+     <View style={{alignItems: 'center'}}>
      <Searchbar 
       style = {styles.searchBar}
       placeholder="Buscar Aula"
     />
+     </View>
+     
     <ScrollView>
     <Pressable style={styles.buttonhome} onPress={() => navigation.navigate('Classroom')}>
       <Text style={styles.texttitle}>Programación SW5-964</Text>
