@@ -102,13 +102,20 @@ const styles = StyleSheet.create({
   texttitle:{
     fontSize:35.5,
     color:'white',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textShadowColor:'black',
+    textShadowOffset:{width: 0, height: 0},
+    textShadowRadius:10 
+
   },
   texttitlec:{
     fontSize:35.5,
-    color:'black',
+    color:'#f9f7f5',
     fontWeight: 'bold',
-    margin:10
+    margin:10,
+    textShadowColor:'black',
+    textShadowOffset:{width: 0, height: 0},
+    textShadowRadius:10 
   },
   textbodyc:{
     fontSize:20,
