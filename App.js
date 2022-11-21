@@ -219,12 +219,12 @@ function PasswordScreen({ navigation }) {
       placeholder='Email'/>
       <View style={styles.containerprofile}>
       <Pressable style={styles.buttonprofile} onPress={() => navigation.navigate('Home')}>
-        <Text style={styles.textbtn}>Cancelar</Text>
+        <Text style={styles.textbtn}>Aceptar</Text>
       </Pressable>
       </View>
       <View style={styles.containerprofile}>
       <Pressable style={styles.buttonprofile} onPress={() => navigation.navigate('Home')}>
-        <Text style={styles.textbtn}>Aceptar</Text>
+        <Text style={styles.textbtn}>Cancelar</Text>
       </Pressable>
       </View>
     </View>
