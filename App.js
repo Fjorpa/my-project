@@ -1,11 +1,12 @@
 import React from 'react';
-import { Button, View, Text, Image } from 'react-native';
+import { Button, View, Text, Image, ScrollView } from 'react-native';
 import { createDrawerNavigator, DrawerContentScrollView } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet, TextInput, Pressable, onPress, Dimensions} from 'react-native';
 import { ImageBackground } from 'react-native';
 import MenuButtonItem from './components/MenuButtonItem';
 import { Searchbar } from 'react-native-paper';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 
@@ -62,7 +63,12 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     elevation: 3,
     backgroundColor: '#FF2D00',
-    alignContent:'center'
+    alignContent:'center', 
+    textAlign:'center',
+    alignItems:'center',
+    width:"50%", 
+    justifyContent:'center', 
+    left:"25%"
   },
   textbtn: {
     fontSize: 20,
@@ -82,10 +88,39 @@ const styles = StyleSheet.create({
     paddingLeft:20  
   },
   containerprofile: {
-    backgroundColor: 'white',
-    alignItems:'center'
+    backgroundColor: 'white'
   },
   //end profile section
+  buttonhome:{
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 15,
+    elevation: 3,
+    backgroundColor: '#FF2D00',
+    margin:20
+  },
+  texttitle:{
+    fontSize:35.5,
+    color:'white',
+    fontWeight: 'bold'
+  },
+  texttitlec:{
+    fontSize:35.5,
+    color:'black',
+    fontWeight: 'bold',
+    margin:10
+  },
+  textbodyc:{
+    fontSize:20,
+    color:'black',
+    margin:10
+  },
+  textbody:{
+    fontSize:20,
+    color:'white',
+    textAlign:'right',
+    marginTop:5
+  },
   subtitle:{
     fontSize: 15,
     color: 'white',
@@ -163,14 +198,28 @@ const styles = StyleSheet.create({
 
 function PasswordScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+    <View>
       <ImageBackground source={image2} resizeMode="stretch" style={styles.image}>
      </ImageBackground>
-      <Text>PASSWORD!</Text>
-      <Button 
-      onPress={() => navigation.goBack()}
-      title="Go back home"
-      />
+     <Text style={styles.textprofile} >Contraseña Anterior</Text>
+      <TextInput style={styles.inputprofile}
+      placeholder='Nombre'/>
+      <Text style={styles.textprofile}>Nueva Contraseña</Text>
+      <TextInput style={styles.inputprofile}
+      placeholder='Apellidos'/>
+      <Text style={styles.textprofile}>Repita la Contraseña</Text>
+      <TextInput style={styles.inputprofile}
+      placeholder='Email'/>
+      <View style={styles.containerprofile}>
+      <Pressable style={styles.buttonprofile} onPress={() => navigation.navigate('Home')}>
+        <Text style={styles.textbtn}>Cancelar</Text>
+      </Pressable>
+      </View>
+      <View style={styles.containerprofile}>
+      <Pressable style={styles.buttonprofile} onPress={() => navigation.navigate('Home')}>
+        <Text style={styles.textbtn}>Aceptar</Text>
+      </Pressable>
+      </View>
     </View>
   );
 }
@@ -189,7 +238,7 @@ function HelpScreen({ navigation }) {
 }
 function ProfileScreen({ navigation }) {
   return (
-    <View style={styles.containerprofile}>
+    <View>
       <ImageBackground source={image2} resizeMode="stretch" style={styles.image}>
      </ImageBackground>
       <Text style={styles.textprofile} >Nombres</Text>
@@ -213,23 +262,77 @@ function ProfileScreen({ navigation }) {
 
 function Home({navigation}) {
   return (
-    <View style={{ flex: 1, alignItems: 'center'}}>
-       <ImageBackground source={image2} resizeMode="stretch" style={styles.image}>
+    <View>
+    <ImageBackground source={image2} resizeMode="stretch" style={styles.image}>
      </ImageBackground>
      <Searchbar 
       style = {styles.searchBar}
       placeholder="Buscar Aula"
     />
-
-      <Text>HOME!</Text>
-      <Button 
-      onPress={() => navigation.goBack()}
-      title="Go back home"
-      />
+    <ScrollView>
+    <Pressable style={styles.buttonhome} onPress={() => navigation.navigate('Classroom')}>
+      <Text style={styles.texttitle}>Programación SW5-964</Text>
+      <Text style={styles.textbody}>Día: Lunes</Text>
+      <Text style={styles.textbody}>Horario:13-00-15:00</Text>
+      <Text style={styles.textbtn}>Nro de Alumnos: 18</Text>
+    </Pressable>
+    <Pressable style={styles.buttonhome} onPress={() => navigation.navigate('Classroom')}>
+      <Text style={styles.texttitle}>Programación SYH-811</Text>
+      <Text style={styles.textbody}>Día: Lunes</Text>
+      <Text style={styles.textbody}>Horario:13-00-15:00</Text>
+      <Text style={styles.textbtn}>Nro de Alumnos: 14</Text>
+    </Pressable>
+    <Pressable style={styles.buttonhome} onPress={() => navigation.navigate('Classroom')}>
+      <Text style={styles.texttitle}>Algoritmos y Estructuras de datos SZ0-395</Text>
+      <Text style={styles.textbody}>Día: Martes</Text>
+      <Text style={styles.textbody}>Horario:13-00-15:00</Text>
+      <Text style={styles.textbtn}>Nro de Alumnos: 20</Text>
+    </Pressable>
+    <Pressable style={styles.buttonhome} onPress={() => navigation.navigate('Classroom')}>
+      <Text style={styles.texttitle}>Complejidad Algoritmica SZZ-980</Text>
+      <Text style={styles.textbody}>Día: Lunes</Text>
+      <Text style={styles.textbody}>Horario:13-00-15:00</Text>
+      <Text style={styles.textbtn}>Nro de Alumnos: 18</Text>
+    </Pressable>
+    <Pressable style={styles.buttonhome} onPress={() => navigation.navigate('Classroom')}>
+      <Text style={styles.texttitle}>IHC SW5-964</Text>
+      <Text style={styles.textbody}>Día: Jueves</Text>
+      <Text style={styles.textbody}>Horario:13-00-15:00</Text>
+      <Text style={styles.textbtn}>Nro de Alumnos: 18</Text>
+    </Pressable>
+    <Pressable style={styles.buttonhome} onPress={() => navigation.navigate('Classroom')}>
+      <Text style={styles.texttitle}>Redes SW5-964</Text>
+      <Text style={styles.textbody}>Día: Viernes</Text>
+      <Text style={styles.textbody}>Horario:21-00-23:00</Text>
+      <Text style={styles.textbtn}>Nro de Alumnos: 18</Text>
+    </Pressable>
+    </ScrollView>
+   
     </View>
   );
 }
-
+function Classroom({navigation}){
+  return(
+    <View>
+     <ImageBackground source={image2} resizeMode="stretch" style={styles.image}>
+     </ImageBackground>
+     <Text style={styles.texttitlec}>Programación SW5-964</Text>
+     <Text style={styles.textbodyc}>Nro de Alumnos: 18</Text>
+     <Text style={styles.textbodyc}>Día: Lunes</Text>
+     <Text style={styles.textbodyc}>Horario: 13:00-15:00  </Text>
+     <View style={styles.containerprofile}>
+      <Pressable style={styles.buttonprofile} onPress={() => navigation.navigate('Home')}>
+        <Text style={styles.textbtn}>Tomar Foto</Text>
+      </Pressable>
+      </View>
+      <View style={styles.containerprofile}>
+      <Pressable style={styles.buttonprofile} onPress={() => navigation.navigate('Home')}>
+        <Text style={styles.textbtn}>Seleccionar Foto</Text>
+      </Pressable>
+      </View>
+    </View>
+  );
+}
 function TabLoginScreen({navigation}) {
   return (
     
@@ -307,6 +410,7 @@ export default function App() {
        >
         <Drawer.Screen options={{headerShown: false}} name="Login" component={TabLoginScreen} />
         <Drawer.Screen name="Home" component={Home} />
+        <Drawer.Screen name="Classroom" component={Classroom} />
         <Drawer.Screen name="Mi Perfil" component={ProfileScreen} />
         <Drawer.Screen name="Ayuda" component={HelpScreen} />
         <Drawer.Screen name="Cambiar contraseña" component={PasswordScreen} />
