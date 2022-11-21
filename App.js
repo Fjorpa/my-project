@@ -44,6 +44,48 @@ const styles = StyleSheet.create({
     marginTop: 20,
 
   },
+  //Profile section
+  inputprofile:{
+    backgroundColor: 'black',
+    fontSize:18,
+    color:'white',
+    width:450,
+    height:50,
+    borderRadius:15,
+    padding: 10,
+    margin: 15
+  },
+  buttonprofile:{
+    marginTop: 100,
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 15,
+    elevation: 3,
+    backgroundColor: '#FF2D00',
+    alignContent:'center'
+  },
+  textbtn: {
+    fontSize: 20,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    color: 'white',
+    alignContent:'center',
+    padding:1
+  },
+  textprofile: {
+    fontSize: 15,
+    lineHeight: 21,
+    letterSpacing: 0.25,
+    color: 'black',
+    padding: 4,
+    marginTop:5,
+    paddingLeft:20  
+  },
+  containerprofile: {
+    backgroundColor: 'white',
+    alignItems:'center'
+  },
+  //end profile section
   subtitle:{
     fontSize: 15,
     color: 'white',
@@ -147,14 +189,24 @@ function HelpScreen({ navigation }) {
 }
 function ProfileScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+    <View style={styles.containerprofile}>
       <ImageBackground source={image2} resizeMode="stretch" style={styles.image}>
      </ImageBackground>
-      <Text>PERFIL!</Text>
-      <Button 
-      onPress={() => navigation.goBack()}
-      title="Go back home"
-      />
+      <Text style={styles.textprofile} >Nombres</Text>
+      <TextInput style={styles.inputprofile}
+      placeholder='Nombre'/>
+      <Text style={styles.textprofile}>Apellidos</Text>
+      <TextInput style={styles.inputprofile}
+      placeholder='Apellidos'/>
+      <Text style={styles.textprofile}>Email</Text>
+      <TextInput style={styles.inputprofile}
+      placeholder='Email'/>
+      <Text style={styles.textprofile}>Numero Telefonico</Text>
+      <TextInput style={styles.inputprofile}
+      placeholder='Telefono'/>
+      <Pressable style={styles.buttonprofile} onPress={() => navigation.navigate('Home')}>
+      <Text style={styles.textbtn}>Volver</Text>
+    </Pressable>
     </View>
   );
 }
