@@ -238,13 +238,13 @@ function PasswordScreen({ navigation }) {
      </ImageBackground>
      <Text style={styles.textprofile} >Contraseña Anterior</Text>
       <TextInput style={styles.inputprofile}
-      placeholder='Nombre'/>
+      placeholder='ContraseñaAnterior'/>
       <Text style={styles.textprofile}>Nueva Contraseña</Text>
       <TextInput style={styles.inputprofile}
-      placeholder='Apellidos'/>
+      placeholder='ContraseñaNueva'/>
       <Text style={styles.textprofile}>Repita la Contraseña</Text>
       <TextInput style={styles.inputprofile}
-      placeholder='Email'/>
+      placeholder='Repitacontraseña'/>
       <View style={styles.passwordInteraction}>
       <View style={styles.containerpassword}>
       <Pressable style={styles.buttonpassword} onPress={() => navigation.navigate('Home')}>
